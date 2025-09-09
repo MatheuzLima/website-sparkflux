@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+body {
+    background-color: #121212;
+    background-image: radial-gradient(circle at 15% 20%, rgba(0, 102, 255, 0.3), transparent 40%),
+                      radial-gradient(circle at 85% 80%, rgba(138, 43, 226, 0.25), transparent 40%);
+    background-attachment: fixed;
+}
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    z-index: 1;
+}
+
+/* .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: #FF6600;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    z-index: -1;
+} */
+
+.btn-primary:hover {
+    /* color: #FFffff; */
+    background-color: #FF6600;
+    transition: background-color 0.4s;
+}
+
+/* .btn-primary:hover::before {
+    width: 225%;
+    height: 500%;
+} */
+
+.faq-question {
+    transition: background-color 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Adjust as needed */
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.client-logo {
+    filter: grayscale(100%) brightness(0.7);
+    transition: filter 0.3s ease;
+}
+
+.client-logo:hover {
+    filter: grayscale(0%) brightness(1);
+}
+
+.section-glow {
+    position: relative;
+}
+
+.section-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
