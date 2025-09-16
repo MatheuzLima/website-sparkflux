@@ -1,4 +1,6 @@
 import { animate, scroll, inView } from "https://esm.run/framer-motion";
+import { PrivacyPolicy } from "./PrivacyPolicy.js";
+import { Terms } from "./Terms.js";
 
 const assets = {
     logo: 'https://r2.flowith.net/files/o/1756949057878-sparkflux_b2b_ai_company_logo_index_0@1024x1024.png',
@@ -10,18 +12,23 @@ const assets = {
 };
 
 const Header = () => `
-    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-black/50 backdrop-blur-lg">
+    <header id="home" class="fixed top-0 left-0 right-0 z-50 bg-brand-black/50 backdrop-blur-lg">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="${assets.logo}" alt="SparkFlux Logo" class="h-10 w-10 mr-3">
-                <span class="font-title text-2xl font-bold text-brand-white">SparkFlux</span>
+                <a href="#/" onclick="window.location.hash='#/'; renderPage(); window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <img src="${assets.logo}" alt="SparkFlux Logo" class="h-10 w-10 mr-3">
+                </a>
+                <a href="#/" onclick="window.location.hash='#/'; renderPage(); window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                    <span class="font-title text-2xl font-bold text-brand-white">SparkFlux</span>
+                </a>
             </div>
-            <a href="#contact" class="btn-primary font-body text-sm font-semibold text-white bg-brand-blue px-6 py-3 rounded-lg hidden md:block">
+            <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" href="#contact" class="btn-primary font-body text-sm font-semibold text-white bg-brand-blue px-6 py-3 rounded-lg hidden md:block">
                 Fale com um especialista
             </a>
         </nav>
     </header>
 `;
+
 
 const Hero = () => `
     <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-20">
@@ -36,8 +43,8 @@ const Hero = () => `
             <p class="font-body text-lg md:text-xl text-brand-gray-light max-w-3xl mx-auto mb-8">
                 Desenvolvemos soluções de Inteligência Artificial sob medida que transformam seus processos operacionais e impulsionam seus resultados.
             </p>
-            <a href="#contact" class="btn-primary font-body font-semibold text-white bg-brand-blue px-8 py-4 rounded-lg text-lg">
-                Quero uma Demonstração
+            <a onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" href="#contact" class="btn-primary font-body font-semibold text-white bg-brand-blue px-8 py-4 rounded-lg text-lg">
+                Agendar uma chamada
             </a>
         </div>
     </section>
@@ -238,48 +245,37 @@ const Faq = () => {
 
 
 const Footer = () => `
-    <footer class="bg-brand-dark py-12">
-        <div class="container mx-auto px-6 text-center text-brand-gray">
-            <div class="flex justify-center items-center mb-6">
-                <img src="${assets.logo}" alt="SparkFlux Logo" class="h-8 w-8 mr-2">
-                <span class="font-title text-xl font-bold text-white">SparkFlux</span>
-            </div>
-            <p class="font-body text-sm mb-6">Fluxos que transformam negócios.</p>
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="hover:text-brand-blue transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-brand-blue transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="mailto:matheuslima@sparkflux.com.br" class="hover:text-brand-blue transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
-            </div>
-            <p class="font-body text-sm">&copy; ${new Date().getFullYear()} SparkFlux. Todos os direitos reservados.</p>
+<footer class="bg-brand-dark py-12">
+    <div class="container mx-auto px-6 text-center text-brand-gray">
+        <div class="flex justify-center items-center mb-6">
+            <img src="${assets.logo}" alt="SparkFlux Logo" class="h-8 w-8 mr-2">
+            <span class="font-title text-xl font-bold text-white">SparkFlux</span>
         </div>
-    </footer>
+        <p class="font-body text-sm mb-4">Fluxos que transformam negócios.</p>
+
+        <!-- Links para Privacidade e Termos -->
+        <div class="flex justify-center space-x-6 mb-6">
+            <a href="#/privacy" class="hover:text-brand-blue transition font-body text-sm">Política de Privacidade</a>
+            <span class="text-gray-600">|</span>
+            <a href="#/terms" class="hover:text-brand-blue transition font-body text-sm">Termos de Uso</a>
+        </div>
+
+        <div class="flex justify-center space-x-6 mb-6">
+            <a href="mailto:matheuslima@sparkflux.com.br" class="hover:text-brand-blue transition"><i data-lucide="mail" class="w-7 h-7"></i></a>
+        </div>
+        <p class="font-body text-sm">&copy; ${new Date().getFullYear()} SparkFlux. Todos os direitos reservados.</p>
+    </div>
+</footer>
 `;
-
-const App = () => {
-    const root = document.getElementById('root');
-    root.innerHTML = `
-        ${Header()}
-        <main>
-            ${Hero()}
-
-            ${ProblemSolution()}
-            ${Benefits()}
-            ${HowItWorks()}
-            ${Cases()}
-            ${Agendar()}
-            ${Cta()}
-            ${Faq()}
-        </main>
-        ${Footer()}
-    `;
-};
 
 const initAnimations = () => {
     const sections = document.querySelectorAll('.animated-section');
     sections.forEach(section => {
-        const elementsToAnimate = section.querySelectorAll('h1, h2, h3, h4, p, a, div.grid > div, form > div, form > input, form > textarea, form > button, #faq-container > div, img.client-logo');
+        const elementsToAnimate = section.querySelectorAll(
+            'h1, h2, h3, h4, p, a, div.grid > div, form > div, form > input, form > textarea, form > button, #faq-container > div, img.client-logo'
+        );
 
-        elementsToAnimate.forEach((el, index) => {
+        elementsToAnimate.forEach((el) => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(30px)';
         });
@@ -292,7 +288,7 @@ const initAnimations = () => {
                     { duration: 0.6, delay: index * 0.05, ease: 'easeOut' }
                 );
             });
-            return (unsubscribe) => { }; // one-shot animation
+            return () => {}; // one-shot animation
         }, { amount: 0.2 });
     });
 };
@@ -305,13 +301,10 @@ const initFaq = () => {
         const questionButton = e.target.closest('.faq-question');
         if (questionButton) {
             const faqItem = questionButton.parentElement;
-
             const wasActive = faqItem.classList.contains('active');
 
             faqContainer.querySelectorAll('.faq-item').forEach(item => {
-                if (item.classList.contains('active')) {
-                    item.classList.remove('active');
-                }
+                item.classList.remove('active');
             });
 
             if (!wasActive) {
@@ -321,40 +314,74 @@ const initFaq = () => {
     });
 };
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    App();
-    lucide.createIcons();
-    initAnimations();
-    initFaq();
-
-
- // === Formulário AJAX para n8n ===
+const initForm = () => {
     const form = document.getElementById('contato-form');
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // previne navegação
+    if (!form) return;
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
-            try {
-                const response = await fetch('https://atendimentosparkflow-n8n.ytekld.easypanel.host/webhook/sparkflux-form', {
+        try {
+            const response = await fetch(
+                'https://atendimentosparkflow-n8n.ytekld.easypanel.host/webhook/sparkflux-form',
+                {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
-                });
+                }
+            );
+            const result = await response.json();
+            console.log(result);
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao enviar a mensagem.");
+        }
+    });
+};
 
-                const result = await response.json();
-                console.log(result); // {"message":"Workflow was started"}
+const renderPage = () => {
+    const root = document.getElementById('root');
+    const hash = window.location.hash;
 
-                // Feedback pro usuário
-                // alert("Mensagem enviada com sucesso!");
-                form.reset();
-            } catch (error) {
-                console.error(error);
-                alert("Erro ao enviar a mensagem.");
-            }
-        });
+    if (hash === "#/privacy") {
+        root.innerHTML = `
+            ${Header()}
+            <main>${PrivacyPolicy()}</main>
+            ${Footer()}
+        `;
+    } else if (hash === "#/terms") {
+        root.innerHTML = `
+            ${Header()}
+            <main>${Terms()}</main>
+            ${Footer()}
+        `;
+    } else {
+        root.innerHTML = `
+            ${Header()}
+            <main>
+                ${Hero()}
+                ${ProblemSolution()}
+                ${Benefits()}
+                ${HowItWorks()}
+                ${Cases()}
+                ${Agendar()}
+                ${Cta()}
+                ${Faq()}
+            </main>
+            ${Footer()}
+        `;
     }
+
+    lucide.createIcons();
+    initAnimations();
+    initFaq();
+    initForm();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderPage();
+    window.addEventListener("hashchange", renderPage);
 });

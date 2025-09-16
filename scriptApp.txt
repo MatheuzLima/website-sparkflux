@@ -1,0 +1,103 @@
+
+const App = () => {
+    const root = document.getElementById('root');
+    root.innerHTML = `
+        ${Header()}
+        <main>
+            ${Hero()}
+
+            ${ProblemSolution()}
+            ${Benefits()}
+            ${HowItWorks()}
+            ${Cases()}
+            ${Agendar()}
+            ${Cta()}
+            ${Faq()}
+        </main>
+        ${Footer()}
+    `;
+};
+
+const initAnimations = () => {
+    const sections = document.querySelectorAll('.animated-section');
+    sections.forEach(section => {
+        const elementsToAnimate = section.querySelectorAll('h1, h2, h3, h4, p, a, div.grid > div, form > div, form > input, form > textarea, form > button, #faq-container > div, img.client-logo');
+
+        elementsToAnimate.forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+        });
+
+        inView(section, () => {
+            elementsToAnimate.forEach((el, index) => {
+                animate(
+                    el,
+                    { opacity: 1, y: 0 },
+                    { duration: 0.6, delay: index * 0.05, ease: 'easeOut' }
+                );
+            });
+            return () => { }; // one-shot animation
+        }, { amount: 0.2 });
+    });
+};
+
+const initFaq = () => {
+    const faqContainer = document.getElementById('faq-container');
+    if (!faqContainer) return;
+
+    faqContainer.addEventListener('click', (e) => {
+        const questionButton = e.target.closest('.faq-question');
+        if (questionButton) {
+            const faqItem = questionButton.parentElement;
+
+            const wasActive = faqItem.classList.contains('active');
+
+            faqContainer.querySelectorAll('.faq-item').forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    });
+};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    App();
+    lucide.createIcons();
+    initAnimations();
+    initFaq();
+
+ // === Formulário AJAX para n8n ===
+    const form = document.getElementById('contato-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // previne navegação
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://atendimentosparkflow-n8n.ytekld.easypanel.host/webhook/sparkflux-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                console.log(result); // {"message":"Workflow was started"}
+
+                // Feedback pro usuário
+                // alert("Mensagem enviada com sucesso!");
+                form.reset();
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao enviar a mensagem.");
+            }
+        });
+    }
+});
