@@ -82,7 +82,7 @@ const Benefits = () => {
     const benefits = [
         { icon: 'zap', title: 'Redução de Custos', description: 'Automatize tarefas e diminua drasticamente os custos operacionais.' },
         { icon: 'scaling', title: 'Escalabilidade Rápida', description: 'Escale suas operações sem aumentar a equipe na mesma proporção.' },
-        { icon: 'blending', title: 'Integração de Sistemas', description: 'Conecte todas as suas ferramentas em um ecossistema coeso e inteligente.' },
+        { icon: 'blend', title: 'Integração de Sistemas', description: 'Conecte todas as suas ferramentas em um ecossistema coeso e inteligente.' },
         { icon: 'lightbulb', title: 'Inovação Acessível', description: 'Implemente IA de ponta com um ROI claro e rápido, sem projetos complexos.' }
     ];
 
@@ -113,10 +113,10 @@ const Benefits = () => {
 
 const HowItWorks = () => {
     const steps = [
-        { icon: 'search-check', title: 'Diagnóstico', description: 'Entendemos seus desafios e identificamos oportunidades de automação para máximo impacto.' },
-        { icon: 'cpu', title: 'Desenvolvimento', description: 'Criamos sua solução de IA personalizada com tecnologia de ponta e foco em performance.' },
-        { icon: 'plug-zap', title: 'Integração', description: 'Conectamos a IA às suas ferramentas existentes de forma fluida e sem interrupções.' },
-        { icon: 'trending-up', title: 'Resultados', description: 'Você acompanha o impacto real na sua operação, com otimização contínua e suporte dedicado.' }
+        { icon: 'search-check', title: 'Consultoria Gratuita', description: 'Fale com um engenheiro de sistemas real para discutir os requisitos e objetivos do seu projeto. Entenderemos sua visão e o ajudaremos a traçar o melhor caminho a seguir.' },
+        { icon: 'cpu', title: 'Definição de Escopo & Proposta', description: 'Com base na nossa consulta, forneceremos um escopo detalhado para o seu projeto. Este documento incluirá as etapas claras, um cronograma realista, o orçamento completo e sugestões de melhorias ou expansões para o seu sistema.' },
+        { icon: 'plug-zap', title: 'Início do Projeto (Kick-off)', description: 'Depois da aprovação da proposta, realizaremos nossa reunião de abertura para definir prioridades, alinhar expectativas e dar início ao processo com clareza e segurança.' },
+        { icon: 'trending-up', title: 'Resultados & Acompanhamento', description: 'Entregamos os resultados conforme os objetivos definidos, acompanhando indicadores e oferecendo suporte para evolução contínua.' }
     ];
 
     return `
@@ -173,19 +173,27 @@ const Cases = () => {
     `;
 }
 
+const Agendar = () => `
+        <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
+        <div class="container mx-auto px-6 text-center">
+        </div>
+        </section>
+
+`;
+
 const Cta = () => `
     <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
         <div class="container mx-auto px-6 text-center">
             <h2 class="font-title text-4xl md:text-5xl font-bold text-white mb-4">Pronto para transformar seus processos?</h2>
             <p class="font-body text-lg text-brand-gray-light max-w-2xl mx-auto mb-8">Fale com um especialista. Preencha o formulário e nossa equipe entrará em contato em até 24 horas.</p>
             <div class="max-w-2xl mx-auto mt-10 text-left">
-                <form class="space-y-6">
+                <form id="contato-form" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Nome" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition">
-                        <input type="email" placeholder="Email Corporativo" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition">
+                        <input type="text" placeholder="Nome" name="nome" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition" required>
+                        <input type="email" placeholder="Email Corporativo" name="email" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition" required>
                     </div>
-                    <input type="text" placeholder="Empresa" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition">
-                    <textarea placeholder="Mensagem" rows="4" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition"></textarea>
+                    <input type="text" placeholder="Empresa" name="empresa" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition" required>
+                    <textarea placeholder="Mensagem" name="mensagem" rows="4" class="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-brand-gray focus:ring-2 focus:ring-brand-blue focus:outline-none transition" required></textarea>
                     <div class="text-center">
                         <button type="submit" class="btn-primary font-body font-semibold text-white bg-brand-blue px-10 py-4 rounded-lg text-lg w-full md:w-auto">Enviar Mensagem</button>
                     </div>
@@ -194,6 +202,7 @@ const Cta = () => `
         </div>
     </section>
 `;
+
 
 const Faq = () => {
     const faqs = [
@@ -239,7 +248,7 @@ const Footer = () => `
             <div class="flex justify-center space-x-6 mb-6">
                 <a href="#" class="hover:text-brand-blue transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
                 <a href="#" class="hover:text-brand-blue transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-brand-blue transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="mailto:matheuslima@sparkflux.com.br" class="hover:text-brand-blue transition"><i data-lucide="mail" class="w-5 h-5"></i></a>
             </div>
             <p class="font-body text-sm">&copy; ${new Date().getFullYear()} SparkFlux. Todos os direitos reservados.</p>
         </div>
@@ -252,11 +261,12 @@ const App = () => {
         ${Header()}
         <main>
             ${Hero()}
-            ${SocialProof()}
+
             ${ProblemSolution()}
             ${Benefits()}
             ${HowItWorks()}
             ${Cases()}
+            ${Agendar()}
             ${Cta()}
             ${Faq()}
         </main>
@@ -317,4 +327,34 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
     initAnimations();
     initFaq();
+
+
+ // === Formulário AJAX para n8n ===
+    const form = document.getElementById('contato-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // previne navegação
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://atendimentosparkflow-n8n.ytekld.easypanel.host/webhook/sparkflux-form', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                console.log(result); // {"message":"Workflow was started"}
+
+                // Feedback pro usuário
+                // alert("Mensagem enviada com sucesso!");
+                form.reset();
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao enviar a mensagem.");
+            }
+        });
+    }
 });
