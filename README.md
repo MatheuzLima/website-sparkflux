@@ -46,7 +46,7 @@ Fluxo dos dados:
 
 ⸻
 
-⚙️ Como rodar o projeto localmente
+## ⚙️ Como rodar o projeto localmente
 
 1. Clone o repositório
 
@@ -59,7 +59,7 @@ Não é necessário nenhum build ou instalação de dependências. Basta abrir o
 
 ⸻
 
-🌍 Como fazer deploy
+## 🌍 Como fazer deploy
 
 Netlify
 	1.	Crie uma conta em Netlify.
@@ -73,7 +73,7 @@ Outras opções
 
 ⸻
 
-📜 Estrutura do Projeto
+## 📜 Estrutura do Projeto
 
 /root
   |-- index.html
@@ -84,18 +84,18 @@ Outras opções
   |     |-- main.css
   |-- /javascript
         |-- script.js (renderização + rotas + animações + formulário)
-        |-- PolicyPrivaty.js
+        |-- PrivacyPolicy.js
         |-- Terms.js
         
-🧑‍💻 Como usar no seu próprio projeto
-	1.	Copie os arquivos index.html, style.css e app.js para sua estrutura.
+## 🧑‍💻 Como usar no seu próprio projeto
+	1.	Copie os arquivos index.html, pastas javascript e styles para sua estrutura.
 	2.	Substitua o logo e imagens em /assets.
-	3.	Configure seu próprio webhook n8n no arquivo app.js (substituindo a URL do fetch).
+	3.	Configure seu próprio webhook n8n no arquivo script.js (substituindo a URL do fetch).
 	4.	Faça deploy no serviço de sua preferência.
 
 ⸻
 
-📬 Contato
+## 📬 Contato
 
 Caso queira adaptar este projeto ou tenha dúvidas sobre a integração:
 ✉️ contato.matheuslimams@gmail.com
