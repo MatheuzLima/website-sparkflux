@@ -1,11 +1,11 @@
-# 🚀 SparkFlux - Website
+#🚀 SparkFlux - Website
 
 Este projeto é uma **Website moderno e dinâmico** desenvolvida em **Vanilla JavaScript** utilizando **template strings** para renderização de componentes.  
 O objetivo principal é apresentar serviços/produtos de forma clara, com animações leves e um **formulário de contato totalmente funcional** integrado ao **n8n**.
 
 ---
 
-## 📌 Funcionalidades
+##📌 Funcionalidades
 
 - Estrutura modular baseada em **funções JavaScript** (cada seção é um componente).
 - Animações de entrada utilizando **Framer Motion (inView + animate)**.
@@ -15,7 +15,7 @@ O objetivo principal é apresentar serviços/produtos de forma clara, com anima�
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##🛠️ Tecnologias Utilizadas
 
 - **Vanilla JavaScript (ES6+)**
 - **Template Strings** para renderização dinâmica
@@ -27,7 +27,7 @@ O objetivo principal é apresentar serviços/produtos de forma clara, com anima�
 
 ---
 
-## 📩 Integração do Formulário
+##📩 Integração do Formulário
 
 Os dados do formulário são enviados para o endpoint configurado no **n8n**:
 
@@ -45,8 +45,8 @@ Fluxo dos dados:
 	4.	Opcionalmente, os dados podem ser salvos em planilhas, bancos de dados ou outras ferramentas integradas ao n8n.
 
 ⸻
-
-## ⚙️ Como rodar o projeto localmente
+```
+##⚙️ Como rodar o projeto localmente
 
 1. Clone o repositório
 
@@ -59,7 +59,7 @@ Não é necessário nenhum build ou instalação de dependências. Basta abrir o
 
 ⸻
 
-## 🌍 Como fazer deploy
+##🌍 Como fazer deploy
 
 Netlify
 	1.	Crie uma conta em Netlify.
@@ -72,8 +72,8 @@ Outras opções
 	•	Hospedagem manual em qualquer servidor estático (Nginx, Apache, etc).
 
 ⸻
-
-## 📜 Estrutura do Projeto
+```
+📜 Estrutura do Projeto
 
 /root
   |-- index.html
@@ -86,8 +86,8 @@ Outras opções
         |-- script.js (renderização + rotas + animações + formulário)
         |-- PrivacyPolicy.js
         |-- Terms.js
-        
-## 🧑‍💻 Como usar no seu próprio projeto
+```        
+#🧑‍💻 Como usar no seu próprio projeto
 	1.	Copie os arquivos index.html, pastas javascript e styles para sua estrutura.
 	2.	Substitua o logo e imagens em /assets.
 	3.	Configure seu próprio webhook n8n no arquivo script.js (substituindo a URL do fetch).
@@ -95,7 +95,7 @@ Outras opções
 
 ⸻
 
-## 📬 Contato
+#📬 Contato
 
 Caso queira adaptar este projeto ou tenha dúvidas sobre a integração:
 ✉️ contato.matheuslimams@gmail.com
