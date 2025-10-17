@@ -181,7 +181,7 @@ const Cases = () => {
 }
 
 const Cta = () => `
-    <section id="contact" class="py-10 md:py-32 bg-brand-black/30 animated-section">
+    <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
         <div class="container mx-auto px-6 text-center">
             <h2 class="font-title text-4xl md:text-5xl font-bold text-white mb-4">Pronto para transformar seus processos?</h2>
             <p class="font-body text-lg text-brand-gray-light max-w-2xl mx-auto mb-8">Fale com um especialista. Preencha o formulário e nossa equipe entrará em contato em até 24 horas.</p>
