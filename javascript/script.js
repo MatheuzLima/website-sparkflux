@@ -179,7 +179,6 @@ const Cases = () => {
     </section>
     `;
 }
-
 // const Cta = () => `
 //     <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
 //         <div class="container mx-auto px-6 text-center">
