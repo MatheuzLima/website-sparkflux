@@ -179,14 +179,7 @@ const Cases = () => {
     </section>
     `;
 }
-// Colocar no lugar do formulario, Ferramenta de agendamento por data como Cal.com ou Calendly.com
-// const Agendar = () => `
-//         <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
-//         <div class="container mx-auto px-6 text-center">
-//         </div>
-//         </section>
 
-// `;
 const Cta = () => `
     <section id="contact" class="py-20 md:py-32 bg-brand-black/30 animated-section">
         <div class="container mx-auto px-6 text-center">
