@@ -1,101 +1,95 @@
-🚀 SparkFlux - Website
+# 🚀 SparkFlux  
 
-Este projeto é uma **Website moderno e dinâmico** desenvolvida em **Vanilla JavaScript** utilizando **template strings** para renderização de componentes.  
-O objetivo principal é apresentar serviços/produtos de forma clara, com animações leves e um **formulário de contato totalmente funcional** integrado ao **n8n**.
-
----
-
-📌 Funcionalidades
-
-- Estrutura modular baseada em **funções JavaScript** (cada seção é um componente).
-- Animações de entrada utilizando **Framer Motion (inView + animate)**.
-- Formulário de contato integrado via **Webhook no n8n**, que envia os dados para a **caixa de entrada no Zoho Mail**.
-- Suporte a múltiplas páginas (ex.: Política de Privacidade e Termos de Uso) via **rotas com hash** (`#/privacy`, `#/terms`).
-- Deploy contínuo realizado na **Netlify**.
+Um **site moderno e leve** feito com **HTML, CSS e JavaScript puro**, projetado para apresentar serviços de forma clara e visualmente agradável.  
+O foco do projeto é a **simplicidade**, **animações suaves** e um **formulário de contato funcional** integrado ao **n8n**.
 
 ---
 
-🛠️ Tecnologias Utilizadas
+## ✨ Principais Recursos
 
-- **Vanilla JavaScript (ES6+)**
-- **Template Strings** para renderização dinâmica
-- **Framer Motion (via esm.run)** para animações
-- **Lucide Icons** para ícones
-- **Netlify** para hospedagem
-- **n8n** para automação de recebimento de formulários
-- **Zoho Mail** como caixa de entrada de destino dos leads
+- Estrutura modular com **funções JavaScript** para cada seção do site.  
+- **Animações leves** com Framer Motion (via esm.run).  
+- **Formulário de contato** integrado ao n8n, enviando mensagens diretamente para o **Zoho Mail**.  
+- Suporte a **páginas adicionais** (ex.: Política de Privacidade e Termos de Uso) usando **rotas via hash**.  
+- **Hospedagem simples e rápida** com Netlify.
 
 ---
 
-📩 Integração do Formulário
+## 🧰 Tecnologias
 
-Os dados do formulário são enviados para o endpoint configurado no **n8n**:
+- **HTML5 + CSS3 + JavaScript (ES6)**
+- **Tailwind CSS (via CDN)** com tema personalizado diretamente no HTML  
+- **Framer Motion (esm.run)** para animações  
+- **Lucide Icons** para ícones  
+- **n8n + Zoho Mail** para automação de formulários  
+- **Netlify** para deploy e hospedagem  
+
+---
+
+## 📩 Integração do Formulário
+
+O formulário envia os dados diretamente para o **Webhook do n8n**:  
 
 ```javascript
-fetch('https://atendimentosparkflow-n8n.ytekld.easypanel.host/webhook/sparkflux-form', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+fetch('https://meu-link/webhook/sparkflux-form', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
 });
 ```
-Fluxo dos dados:
-	1.	Usuário preenche o formulário (nome, e-mail, telefone, mensagem).
-	2.	Dados são enviados via webhook para o n8n.
-	3.	O n8n processa os dados e direciona para a caixa de entrada Zoho Mail.
-	4.	Opcionalmente, os dados podem ser salvos em planilhas, bancos de dados ou outras ferramentas integradas ao n8n.
 
-⸻
+Fluxo:  
+1. O usuário preenche o formulário.  
+2. O **n8n** recebe os dados e envia para o **Zoho Mail**.  
+3. Opcionalmente, os dados podem ser salvos em planilhas ou bancos de dados.  
 
-⚙️ Como rodar o projeto localmente
+---
 
-1. Clone o repositório
+## ⚙️ Rodando Localmente
 
-git clone https://github.com/seu-usuario/sparkflux-landing.git
-cd sparkflux-landing
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/seu-usuario/sparkflux.git
+   cd sparkflux
+   ```
+2. Abra o arquivo `index.html` diretamente no navegador.  
+   *(Não é necessário instalar nada.)*
 
-2. Abra no navegador
+---
 
-Não é necessário nenhum build ou instalação de dependências. Basta abrir o arquivo index.html diretamente em seu navegador.
+## 🌍 Deploy
 
-⸻
+**Netlify:**  
+1. Crie uma conta em [Netlify](https://netlify.com).  
+2. Faça upload do projeto ou conecte o repositório GitHub.  
+3. O site será publicado automaticamente.  
 
-🌍 Como fazer deploy
+Outras opções: Vercel, GitHub Pages ou qualquer servidor estático.  
 
-Netlify
-	1.	Crie uma conta em Netlify.
-	2.	Faça upload do projeto ou conecte o repositório GitHub.
-	3.	O deploy será feito automaticamente, com link público imediato.
+---
 
-Outras opções
-	•	Vercel
-	•	GitHub Pages
-	•	Hospedagem manual em qualquer servidor estático (Nginx, Apache, etc).
+## 📂 Estrutura do Projeto
 
-⸻
-
-📜 Estrutura do Projeto
 ```
 /root
-  |-- index.html
-  |-- /assets
-  |     |-- logo.png
-  |     |-- imagens...
-  |-- /styles
-  |     |-- main.css
-  |-- /javascript
-        |-- script.js (renderização + rotas + animações + formulário)
-        |-- PrivacyPolicy.js
-        |-- Terms.js
-```        
-🧑‍💻 Como usar no seu próprio projeto
-	1.	Copie os arquivos index.html, pastas javascript e styles para sua estrutura.
-	2.	Substitua o logo e imagens em /assets.
-	3.	Configure seu próprio webhook n8n no arquivo script.js (substituindo a URL do fetch).
-	4.	Faça deploy no serviço de sua preferência.
+ ├── index.html
+ ├── /styles
+ │    └── style.css
+ └── /javascript
+      ├── script.js
+      ├── PrivacyPolicy.js
+      └── Terms.js
+```
 
-⸻
+---
 
-📬 Contato
+## 🧑‍💻 Personalizando
 
-Caso queira adaptar este projeto ou tenha dúvidas sobre a integração:
-✉️ contato.matheuslimams@gmail.com
+1. Atualize a URL do seu webhook n8n no arquivo `script.js`.  
+2. Faça o deploy no serviço que preferir.  
+
+---
+
+## 📬 Contato
+
+📧 **contato.matheuslimams@gmail.com**  
