@@ -38,7 +38,7 @@ const Hero = () => `
         </div>
         <div class="relative z-10 px-6 animated-section">
             <h1 class="font-title text-4xl md:text-6xl lg:text-7xl font-bold text-brand-white leading-tight mb-4">
-                Automatize o Complexo. <span class="text-brand-blue">Acelere o Futuro testee.</span>
+                 00000Automatize o Complexo. <span class="text-brand-blue">Acelere o Futuro.</span>
             </h1>
             <p class="font-body text-lg md:text-xl text-brand-gray-light max-w-3xl mx-auto mb-8">
                 Desenvolvemos soluções de Inteligência Artificial sob medida que transformam seus processos operacionais e impulsionam seus resultados.
